@@ -1,0 +1,120 @@
+% This function is used to import all .txt data to MatLab, extract their Accelerometer Z-axis vector and name these vectors after corresponding velocity, such as accZ5_6, which means this vector is collected under 5.6km/h for 100 seconds.
+
+% We need to know sample rate to decide the sample numbers. Nexus 4: 199Hz, Nexus 5: 200Hz or 128Hz.
+
+% In order to have all these accZ*_* vectors, I can't write function.
+clear;
+sample_rate = 199;
+txtFiles = dir('*.txt');
+numfiles = length(txtFiles);
+if numfiles ~= 25
+	error('There are %d files. Error! You must have 25 files!', numfiles);	
+else
+	disp('There are 25 files. Correct!');
+	accZ3_0 = importOneData(txtFiles(1).name, sample_rate);
+	accZ5_6 = importOneData(txtFiles(2).name, sample_rate);
+	accZ3_2 = importOneData(txtFiles(3).name, sample_rate);
+	accZ5_8 = importOneData(txtFiles(4).name, sample_rate);
+	accZ3_4 = importOneData(txtFiles(5).name, sample_rate);
+	accZ6_0 = importOneData(txtFiles(6).name, sample_rate);
+	accZ3_6 = importOneData(txtFiles(7).name, sample_rate);
+	accZ6_2 = importOneData(txtFiles(8).name, sample_rate);
+	accZ3_8 = importOneData(txtFiles(9).name, sample_rate);
+	accZ6_4 = importOneData(txtFiles(10).name, sample_rate);
+	accZ4_0 = importOneData(txtFiles(11).name, sample_rate);
+	accZ6_6 = importOneData(txtFiles(12).name, sample_rate);
+	accZ4_2 = importOneData(txtFiles(13).name, sample_rate);
+	accZ6_8 = importOneData(txtFiles(14).name, sample_rate);
+	accZ4_4 = importOneData(txtFiles(15).name, sample_rate);
+	accZ7_0 = importOneData(txtFiles(16).name, sample_rate);
+	accZ4_6 = importOneData(txtFiles(17).name, sample_rate);
+	accZ7_2 = importOneData(txtFiles(18).name, sample_rate);
+	accZ4_8 = importOneData(txtFiles(19).name, sample_rate);
+	accZ7_4 = importOneData(txtFiles(20).name, sample_rate);
+	accZ5_0 = importOneData(txtFiles(21).name, sample_rate);
+	accZ7_6 = importOneData(txtFiles(22).name, sample_rate);
+	accZ5_2 = importOneData(txtFiles(23).name, sample_rate);
+	accZ7_8 = importOneData(txtFiles(24).name, sample_rate);
+	accZ5_4 = importOneData(txtFiles(25).name, sample_rate);
+
+	[RZ3_0, RRZ3_0, RRRZ3_0, LocZ3_0, LocLocZ3_0, LocLocLocZ3_0] = getInstantSampleAfterCorrelation(accZ3_0, 3.0);
+	[RZ3_2, RRZ3_2, RRRZ3_2, LocZ3_2, LocLocZ3_2, LocLocLocZ3_2] = getInstantSampleAfterCorrelation(accZ3_2, 3.2);
+	[RZ3_4, RRZ3_4, RRRZ3_4, LocZ3_4, LocLocZ3_4, LocLocLocZ3_4] = getInstantSampleAfterCorrelation(accZ3_4, 3.4);
+	[RZ3_6, RRZ3_6, RRRZ3_6, LocZ3_6, LocLocZ3_6, LocLocLocZ3_6] = getInstantSampleAfterCorrelation(accZ3_6, 3.6);
+	[RZ3_8, RRZ3_8, RRRZ3_8, LocZ3_8, LocLocZ3_8, LocLocLocZ3_8] = getInstantSampleAfterCorrelation(accZ3_8, 3.8);
+	[RZ4_0, RRZ4_0, RRRZ4_0, LocZ4_0, LocLocZ4_0, LocLocLocZ4_0] = getInstantSampleAfterCorrelation(accZ4_0, 4.0);
+	[RZ4_2, RRZ4_2, RRRZ4_2, LocZ4_2, LocLocZ4_2, LocLocLocZ4_2] = getInstantSampleAfterCorrelation(accZ4_2, 4.2);
+	[RZ4_4, RRZ4_4, RRRZ4_4, LocZ4_4, LocLocZ4_4, LocLocLocZ4_4] = getInstantSampleAfterCorrelation(accZ4_4, 4.4);
+	[RZ4_6, RRZ4_6, RRRZ4_6, LocZ4_6, LocLocZ4_6, LocLocLocZ4_6] = getInstantSampleAfterCorrelation(accZ4_6, 4.6);
+	[RZ4_8, RRZ4_8, RRRZ4_8, LocZ4_8, LocLocZ4_8, LocLocLocZ4_8] = getInstantSampleAfterCorrelation(accZ4_8, 4.8);
+	[RZ5_0, RRZ5_0, RRRZ5_0, LocZ5_0, LocLocZ5_0, LocLocLocZ5_0] = getInstantSampleAfterCorrelation(accZ5_0, 5.0);
+	[RZ5_2, RRZ5_2, RRRZ5_2, LocZ5_2, LocLocZ5_2, LocLocLocZ5_2] = getInstantSampleAfterCorrelation(accZ5_2, 5.2);
+	[RZ5_4, RRZ5_4, RRRZ5_4, LocZ5_4, LocLocZ5_4, LocLocLocZ5_4] = getInstantSampleAfterCorrelation(accZ5_4, 5.4);
+	[RZ5_6, RRZ5_6, RRRZ5_6, LocZ5_6, LocLocZ5_6, LocLocLocZ5_6] = getInstantSampleAfterCorrelation(accZ5_6, 5.6);
+	[RZ5_8, RRZ5_8, RRRZ5_8, LocZ5_8, LocLocZ5_8, LocLocLocZ5_8] = getInstantSampleAfterCorrelation(accZ5_8, 5.8);
+	[RZ6_0, RRZ6_0, RRRZ6_0, LocZ6_0, LocLocZ6_0, LocLocLocZ6_0] = getInstantSampleAfterCorrelation(accZ6_0, 6.0);
+	[RZ6_2, RRZ6_2, RRRZ6_2, LocZ6_2, LocLocZ6_2, LocLocLocZ6_2] = getInstantSampleAfterCorrelation(accZ6_2, 6.2);
+	[RZ6_4, RRZ6_4, RRRZ6_4, LocZ6_4, LocLocZ6_4, LocLocLocZ6_4] = getInstantSampleAfterCorrelation(accZ6_4, 6.4);
+	[RZ6_6, RRZ6_6, RRRZ6_6, LocZ6_6, LocLocZ6_6, LocLocLocZ6_6] = getInstantSampleAfterCorrelation(accZ6_6, 6.6);
+	[RZ6_8, RRZ6_8, RRRZ6_8, LocZ6_8, LocLocZ6_8, LocLocLocZ6_8] = getInstantSampleAfterCorrelation(accZ6_8, 6.8);
+	[RZ7_0, RRZ7_0, RRRZ7_0, LocZ7_0, LocLocZ7_0, LocLocLocZ7_0] = getInstantSampleAfterCorrelation(accZ7_0, 7.0);
+	[RZ7_2, RRZ7_2, RRRZ7_2, LocZ7_2, LocLocZ7_2, LocLocLocZ7_2] = getInstantSampleAfterCorrelation(accZ7_2, 7.2);
+	[RZ7_4, RRZ7_4, RRRZ7_4, LocZ7_4, LocLocZ7_4, LocLocLocZ7_4] = getInstantSampleAfterCorrelation(accZ7_4, 7.4);
+	[RZ7_6, RRZ7_6, RRRZ7_6, LocZ7_6, LocLocZ7_6, LocLocLocZ7_6] = getInstantSampleAfterCorrelation(accZ7_6, 7.6);
+	[RZ7_8, RRZ7_8, RRRZ7_8, LocZ7_8, LocLocZ7_8, LocLocLocZ7_8] = getInstantSampleAfterCorrelation(accZ7_8, 7.8);
+
+	FZ3_0 = getSampleSetVF(LocLocLocZ3_0, sample_rate);
+	FZ3_2 = getSampleSetVF(LocLocLocZ3_2, sample_rate);
+	FZ3_4 = getSampleSetVF(LocLocLocZ3_4, sample_rate);
+	FZ3_6 = getSampleSetVF(LocLocLocZ3_6, sample_rate);
+	FZ3_8 = getSampleSetVF(LocLocLocZ3_8, sample_rate);
+	FZ4_0 = getSampleSetVF(LocLocLocZ4_0, sample_rate);
+	FZ4_2 = getSampleSetVF(LocLocLocZ4_2, sample_rate);
+	FZ4_4 = getSampleSetVF(LocLocLocZ4_4, sample_rate);
+	FZ4_6 = getSampleSetVF(LocLocLocZ4_6, sample_rate);
+	FZ4_8 = getSampleSetVF(LocLocLocZ4_8, sample_rate);
+	FZ5_0 = getSampleSetVF(LocLocLocZ5_0, sample_rate);
+	FZ5_2 = getSampleSetVF(LocLocLocZ5_2, sample_rate);
+	FZ5_4 = getSampleSetVF(LocLocLocZ5_4, sample_rate);
+	FZ5_6 = getSampleSetVF(LocLocLocZ5_6, sample_rate);
+	FZ5_8 = getSampleSetVF(LocLocLocZ5_8, sample_rate);
+	FZ6_0 = getSampleSetVF(LocLocLocZ6_0, sample_rate);
+	FZ6_2 = getSampleSetVF(LocLocLocZ6_2, sample_rate);
+	FZ6_4 = getSampleSetVF(LocLocLocZ6_4, sample_rate);
+	FZ6_6 = getSampleSetVF(LocLocLocZ6_6, sample_rate);
+	FZ6_8 = getSampleSetVF(LocLocLocZ6_8, sample_rate);
+	FZ7_0 = getSampleSetVF(LocLocLocZ7_0, sample_rate);
+	FZ7_2 = getSampleSetVF(LocLocLocZ7_2, sample_rate);
+	FZ7_4 = getSampleSetVF(LocLocLocZ7_4, sample_rate);
+	FZ7_6 = getSampleSetVF(LocLocLocZ7_6, sample_rate);
+	FZ7_8 = getSampleSetVF(LocLocLocZ7_8, sample_rate);
+
+	FV = [FZ3_0 ones(size(FZ3_0,1),1)*3.0];
+	FV = [FV; FZ3_2 ones(size(FZ3_2,1),1)*3.2];
+	FV = [FV; FZ3_4 ones(size(FZ3_4,1),1)*3.4];
+	FV = [FV; FZ3_6 ones(size(FZ3_6,1),1)*3.6];
+	FV = [FV; FZ3_8 ones(size(FZ3_8,1),1)*3.8];
+	FV = [FV; FZ4_0 ones(size(FZ4_0,1),1)*4.0];
+	FV = [FV; FZ4_2 ones(size(FZ4_2,1),1)*4.2];
+	FV = [FV; FZ4_4 ones(size(FZ4_4,1),1)*4.4];
+	FV = [FV; FZ4_6 ones(size(FZ4_6,1),1)*4.6];
+	FV = [FV; FZ4_8 ones(size(FZ4_8,1),1)*4.8];
+	FV = [FV; FZ5_0 ones(size(FZ5_0,1),1)*5.0];
+	FV = [FV; FZ5_2 ones(size(FZ5_2,1),1)*5.2];
+	FV = [FV; FZ5_4 ones(size(FZ5_4,1),1)*5.4];
+	FV = [FV; FZ5_6 ones(size(FZ5_6,1),1)*5.6];
+	FV = [FV; FZ5_8 ones(size(FZ5_8,1),1)*5.8];
+	FV = [FV; FZ6_0 ones(size(FZ6_0,1),1)*6.0];
+	FV = [FV; FZ6_2 ones(size(FZ6_2,1),1)*6.2];
+	FV = [FV; FZ6_4 ones(size(FZ6_4,1),1)*6.4];
+	FV = [FV; FZ6_6 ones(size(FZ6_6,1),1)*6.6];
+	FV = [FV; FZ6_8 ones(size(FZ6_8,1),1)*6.8];
+	FV = [FV; FZ7_0 ones(size(FZ7_0,1),1)*7.0];
+	FV = [FV; FZ7_2 ones(size(FZ7_2,1),1)*7.2];
+	FV = [FV; FZ7_4 ones(size(FZ7_4,1),1)*7.4];
+	FV = [FV; FZ7_6 ones(size(FZ7_6,1),1)*7.6];
+	FV = [FV; FZ7_8 ones(size(FZ7_8,1),1)*7.8];
+
+	figure;
+	plot(FV(:,1), FV(:,2), '.');
+end;
