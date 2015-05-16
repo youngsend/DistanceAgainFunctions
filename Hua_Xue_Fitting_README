@@ -1,0 +1,9 @@
+Now I have cut the acc data into a granularity of one step. 
+First, I constrain the time duration of one step into a range of 0.3 second to 1 second. (0.3 second means 3 steps per second, 1 second means 1 step per second) 
+Second, Under each velocity, I delete those frequency values that appear for less than 3 percent of all frequency values. For example, under 5.1km/h, if I get 100 steps, which means 100 frequency values, and 3Hz only appears twice, I will delete all 3Hz values.
+
+Before Fitting, there are still another question. I need to plot these samples so that it has a hist2d effect. Matlab doesn't has a hist2d.m function, while Python has one. Now, I'm writing a hist2d.m function.
+I've finished the hist2d.m function.
+However, It is not easy to select a good step (slot). Different slots can be very different.
+
+Now, I can do fitting!
