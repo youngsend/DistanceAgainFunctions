@@ -7,3 +7,9 @@ I've finished the hist2d.m function.
 However, It is not easy to select a good step (slot). Different slots can be very different.
 
 Now, I can do fitting!
+1. Select an appropriate step for Frequency, Velocity and Step Length. 
+If I want 40 steps, I can get the step = (max() - min()) / 40.
+If I want 50 steps, I can get the step = (max() - min()) / 50.
+Now, max(f) = 2.7639, min(f) = 1.4851, max-min = 1.2788, 1.2788/40 = 0.03197
+max(v) = 2.1944, min(v) = 0.8333, max-min = 1.3611, 1.3611/40 = 0.0340275
+max(d) = 1.1027, min(d) = 0.4673, max-min = 0.6354, 0.6354/40 = 0.015885

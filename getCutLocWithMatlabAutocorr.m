@@ -54,10 +54,10 @@ for j = 1:n,
 	F = [F; f];
 end
 
-figure;
-plot(CutLoc, '.');
-str = ['Velocity is ', num2str(v), 'km/h; Window Size is ', num2str(sequence_time), 'seconds.'];
-title(str);
+%figure;
+%plot(CutLoc, '.');
+%str = ['Velocity is ', num2str(v), 'km/h; Window Size is ', num2str(sequence_time), 'seconds.'];
+%title(str);
 end
 
 
