@@ -27,5 +27,5 @@ H = accumarray([Yi(:) Xi(:)], 1, [yNumBins xNumBins]);
 imagesc(xbins, ybins, H);
 % In default, Y Direction will reverse, so I make it normal.
 set(gca, 'YDir', 'normal');
-colormap hot; colorbar
-hold on, plot(X, Y, 'b.', 'MarkerSize', 1), hold off
+colormap hot; colorbar;
+hold on, plot(X, Y, 'b.', 'MarkerSize', 1);
