@@ -1,5 +1,6 @@
 % In this method, I don't use FFT any more. Instead, I use Auto Correlation to get samples from every two steps.
 clear;
+% Different type of smartphones have different sample rate. Nexus 4: 199Hz, Nexus 5: 200Hz or 128Hz, Galaxy Nexus: 100Hz. One man would better use the same type of smartphone during his trials.
 sample_rate = 199;
 sequence_time = 2;
 clean_percent = 3;
