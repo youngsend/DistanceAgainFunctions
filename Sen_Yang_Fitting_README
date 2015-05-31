@@ -1,0 +1,10 @@
+1. I use importOddDataWithAutocorr.m and importEvenDataWithAutocorr.m to get Sen Yang's clean samples Sen_FVClean_Matlab_Autocorr.mat.
+
+2. I use modelSelect.m to respectively see Velocity vs. Frequency, Velocity vs. Distance (Step Length), and Distance vs. Frequency. In consequence, Cubic models fit all three of them. 
+However, J (test error) may be very close. For example, after modelSelect(d, v), J_cubic = 0.0015748, J_quadratic = 0.0015825 and J_linear = 0.0016. Although J_cubic is the minimal, I finally choose J_linear because I tend to use model with lower polynomial.
+Now, for (f,v), I chose cubic model. So I need to verify d = theta0/f + theta1 + theta2*f + theta3*f^2 on (f,d) by plotting.
+For (d,v), I chose linear model. So I need to verify d = theta0 / (f-theta1) still on (f, d) by plotting.
+For (f,d), I chose cubic model. So I need to verify v = theta0*f + theta1*f^2 + theta2*f^3 + theta3*f^4 on (f,v) by plotting.
+
+Now, for Hua Xue and Sen Yang, I both use CUBIC model on (f, v), because it fits the best. 
+So v = theta0 + theta1*f + theta2*f^2 + theta3*f^3
